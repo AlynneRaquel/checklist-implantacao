@@ -8,6 +8,7 @@ public class ChecklistImplantacaoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChecklistImplantacaoApplication.class, args);
+		
 	}
 
 }
