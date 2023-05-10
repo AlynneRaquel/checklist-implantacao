@@ -29,17 +29,17 @@ public class Client {
 	
 	@NotBlank
 	@OneToOne
-	private Adress idAdress;
+	private Address idAdress;
 	
 	@NotBlank
 	@Size(max = 5)
 	private Boolean isActive;
 	
-	@ManyToMany
-	@JoinTable(
-		name = "Checklist",
-		joinColumns = @JoinColumn(name = "idClient"),
-		inverseJoinColumns = @JoinColumn(name = "idTask")
-	)
-	private List<Task> tasks;
+//	@ManyToMany
+//	@JoinTable(
+//		name = "Checklist",
+//		joinColumns = @JoinColumn(name = "idClient"),
+//		inverseJoinColumns = @JoinColumn(name = "idTask")
+//	)
+//	private List<Task> tasks;
 }

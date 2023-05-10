@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
@@ -27,12 +28,13 @@ public class Task {
 	
 	@NotBlank
 	@Size(max = 500)
-	private String description;
+	private String siga;
 	
 	@NotBlank
 	@ManyToOne
+	@JoinColumn(name = "id_status")
 	private Status idStatus;
 	
-	@ManyToMany(mappedBy = "tasks")
-	private List<Client> clients;
+//	@ManyToMany(mappedBy = "tasks")
+//	private List<Client> clients;
 }

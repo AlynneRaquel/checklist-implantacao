@@ -28,5 +28,5 @@ public class Ug {
 	
 	@NotBlank
 	@ManyToOne
-	private Adress idAdress;
+	private Address idAdress;
 }

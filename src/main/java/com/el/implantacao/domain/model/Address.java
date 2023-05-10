@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Adress {
+public class Address {
 		
 	@EqualsAndHashCode.Include
 	@Id
@@ -22,10 +22,11 @@ public class Adress {
 	private Long id;
 	
 	@NotBlank
+	@Size(max = 200)
+	private String city;
+
+	@NotBlank
 	@Size(max = 2)
 	private String state;
 	
-	@NotBlank
-	@Size(max = 200)
-	private String city;
 }

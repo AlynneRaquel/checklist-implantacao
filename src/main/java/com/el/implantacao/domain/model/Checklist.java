@@ -20,9 +20,9 @@ public class Checklist {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
-	private Client idClient;
+//	@NotBlank
+//	private Client idClient;
 	
-	@NotBlank
-	private Task idTask;
+//	@NotBlank
+//	private Task idTask;
 }
