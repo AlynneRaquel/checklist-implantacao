@@ -1,9 +1,13 @@
 package com.el.implantacao.domain.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
@@ -14,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Status {
+public class Task {
 		
 	@EqualsAndHashCode.Include
 	@Id
@@ -22,6 +26,13 @@ public class Status {
 	private Long id;
 	
 	@NotBlank
-	@Size(max = 50)
-	private String status;
+	@Size(max = 500)
+	private String description;
+	
+	@NotBlank
+	@ManyToOne
+	private Status idStatus;
+	
+	@ManyToMany(mappedBy = "tasks")
+	private List<Client> clients;
 }

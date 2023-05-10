@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
@@ -27,11 +27,14 @@ public class User {
 	private String name;
 	
 	@NotBlank
-	@Email
 	@Size(max = 255)
 	private String user;
 	
 	@NotBlank
 	@Size(max = 40)
 	private String password;
+	
+	@NotBlank
+	@ManyToOne
+	private Type type;
 }

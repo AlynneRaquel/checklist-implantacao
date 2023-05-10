@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Status {
+public class Type {
 		
 	@EqualsAndHashCode.Include
 	@Id
@@ -22,6 +22,6 @@ public class Status {
 	private Long id;
 	
 	@NotBlank
-	@Size(max = 50)
-	private String status;
+	@Size(max = 200)
+	private String name;
 }
