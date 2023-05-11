@@ -18,27 +18,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.el.implantacao.domain.model.Client;
-import com.el.implantacao.domain.repository.ClientRepository;
+import com.el.implantacao.domain.model.Type;
+import com.el.implantacao.domain.repository.TypeRepository;
 
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/types")
+public class TypeController {
 	
 	@Autowired
-	private ClientRepository clientRepository;
-//	private CatalogoClientService catalogoClientService;
+	private TypeRepository typeRepository;
+//	private CatalogoTypeService catalogoTypeService;
 
 	@GetMapping
-	public List<Client> listar() {
-		return clientRepository.findAll();
+	public List<Type> listar() {
+		return typeRepository.findAll();
 	}
 	
-//	@GetMapping("/{ClientId}")
-//	public ResponseEntity<Client> buscar(@PathVariable Long ClientId) {
-//		return ClientRepository.findById(ClientId)
+//	@GetMapping("/{TypeId}")
+//	public ResponseEntity<Type> buscar(@PathVariable Long TypeId) {
+//		return TypeRepository.findById(TypeId)
 //				.map(ResponseEntity::ok)
 //				.orElse(ResponseEntity.notFound().build());
 //		
@@ -46,30 +46,30 @@ public class ClientController {
 //
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Client adicionar(@Valid @RequestBody Client Client) {
-		return clientRepository.save(Client);
+	public Type adicionar(@Valid @RequestBody Type Type) {
+		return typeRepository.save(Type);
 	}
 //	
-//	@PutMapping("/{ClientId}")
-//	public ResponseEntity<Client> atualizar(@PathVariable Long ClientId, @Valid @RequestBody Client Client) {
-//		if (!ClientRepository.existsById(ClientId)) {
+//	@PutMapping("/{TypeId}")
+//	public ResponseEntity<Type> atualizar(@PathVariable Long TypeId, @Valid @RequestBody Type Type) {
+//		if (!TypeRepository.existsById(TypeId)) {
 //			return ResponseEntity.notFound().build();
 //		}
 //		
-//		Client.setId(ClientId);
-//		Client = catalogoClientService.salvar(Client);
+//		Type.setId(TypeId);
+//		Type = catalogoTypeService.salvar(Type);
 //		
-//		return ResponseEntity.ok(Client);
+//		return ResponseEntity.ok(Type);
 //	}
 //	
-//	@DeleteMapping("/{ClientId}")
-//	public ResponseEntity<Void> remover(@PathVariable Long ClientId) {
-//		if (!ClientRepository.existsById(ClientId)) {
+//	@DeleteMapping("/{TypeId}")
+//	public ResponseEntity<Void> remover(@PathVariable Long TypeId) {
+//		if (!TypeRepository.existsById(TypeId)) {
 //			return ResponseEntity.notFound().build();
 //		}
 //		
-////		ClientRepository.deleteById(ClientId);
-//		catalogoClientService.excluir(ClientId);
+////		TypeRepository.deleteById(TypeId);
+//		catalogoTypeService.excluir(TypeId);
 //		
 //		return ResponseEntity.noContent().build();
 //	}

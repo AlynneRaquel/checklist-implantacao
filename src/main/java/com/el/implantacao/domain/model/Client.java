@@ -11,6 +11,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,19 +28,18 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	@NotNull
 	@OneToOne
-	private Address idAdress;
+	private Address address;
 	
-	@NotBlank
-	@Size(max = 5)
+	@NotNull
 	private Boolean isActive;
 	
-//	@ManyToMany
-//	@JoinTable(
-//		name = "Checklist",
-//		joinColumns = @JoinColumn(name = "idClient"),
-//		inverseJoinColumns = @JoinColumn(name = "idTask")
-//	)
-//	private List<Task> tasks;
+	@ManyToMany
+	@JoinTable(
+		name = "Checklist",
+		joinColumns = @JoinColumn(name = "client_id"),
+		inverseJoinColumns = @JoinColumn(name = "task_id")
+	)
+	private List<Task> tasks;
 }

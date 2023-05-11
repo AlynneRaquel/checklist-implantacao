@@ -18,22 +18,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.el.implantacao.domain.model.Client;
-import com.el.implantacao.domain.repository.ClientRepository;
+import com.el.implantacao.domain.model.Address;
+import com.el.implantacao.domain.repository.AddressRepository;
 
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/addresses")
+public class AddressController {
 	
 	@Autowired
-	private ClientRepository clientRepository;
+	private AddressRepository addressRepository;
 //	private CatalogoClientService catalogoClientService;
 
 	@GetMapping
-	public List<Client> listar() {
-		return clientRepository.findAll();
+	public List<Address> listar() {
+		return addressRepository.findAll();
 	}
 	
 //	@GetMapping("/{ClientId}")
@@ -46,8 +46,8 @@ public class ClientController {
 //
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Client adicionar(@Valid @RequestBody Client Client) {
-		return clientRepository.save(Client);
+	public Address adicionar(@Valid @RequestBody Address address) {
+		return addressRepository.save(address);
 	}
 //	
 //	@PutMapping("/{ClientId}")

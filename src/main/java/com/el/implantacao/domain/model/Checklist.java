@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,9 +21,9 @@ public class Checklist {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-//	@NotBlank
-//	private Client idClient;
-	
-//	@NotBlank
-//	private Task idTask;
+//	@NotNull
+//	private Client client;
+//	
+//	@NotNull
+//	private Task task;
 }

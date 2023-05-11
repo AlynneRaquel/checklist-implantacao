@@ -18,27 +18,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.el.implantacao.domain.model.Client;
-import com.el.implantacao.domain.repository.ClientRepository;
+import com.el.implantacao.domain.model.Ug;
+import com.el.implantacao.domain.repository.UgRepository;
 
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/ugs")
+public class UgController {
 	
 	@Autowired
-	private ClientRepository clientRepository;
-//	private CatalogoClientService catalogoClientService;
+	private UgRepository ugRepository;
+//	private CatalogoUgService catalogoUgService;
 
 	@GetMapping
-	public List<Client> listar() {
-		return clientRepository.findAll();
+	public List<Ug> listar() {
+		return ugRepository.findAll();
 	}
 	
-//	@GetMapping("/{ClientId}")
-//	public ResponseEntity<Client> buscar(@PathVariable Long ClientId) {
-//		return ClientRepository.findById(ClientId)
+//	@GetMapping("/{UgId}")
+//	public ResponseEntity<Ug> buscar(@PathVariable Long UgId) {
+//		return UgRepository.findById(UgId)
 //				.map(ResponseEntity::ok)
 //				.orElse(ResponseEntity.notFound().build());
 //		
@@ -46,30 +46,30 @@ public class ClientController {
 //
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Client adicionar(@Valid @RequestBody Client Client) {
-		return clientRepository.save(Client);
+	public Ug adicionar(@Valid @RequestBody Ug Ug) {
+		return ugRepository.save(Ug);
 	}
 //	
-//	@PutMapping("/{ClientId}")
-//	public ResponseEntity<Client> atualizar(@PathVariable Long ClientId, @Valid @RequestBody Client Client) {
-//		if (!ClientRepository.existsById(ClientId)) {
+//	@PutMapping("/{UgId}")
+//	public ResponseEntity<Ug> atualizar(@PathVariable Long UgId, @Valid @RequestBody Ug Ug) {
+//		if (!UgRepository.existsById(UgId)) {
 //			return ResponseEntity.notFound().build();
 //		}
 //		
-//		Client.setId(ClientId);
-//		Client = catalogoClientService.salvar(Client);
+//		Ug.setId(UgId);
+//		Ug = catalogoUgService.salvar(Ug);
 //		
-//		return ResponseEntity.ok(Client);
+//		return ResponseEntity.ok(Ug);
 //	}
 //	
-//	@DeleteMapping("/{ClientId}")
-//	public ResponseEntity<Void> remover(@PathVariable Long ClientId) {
-//		if (!ClientRepository.existsById(ClientId)) {
+//	@DeleteMapping("/{UgId}")
+//	public ResponseEntity<Void> remover(@PathVariable Long UgId) {
+//		if (!UgRepository.existsById(UgId)) {
 //			return ResponseEntity.notFound().build();
 //		}
 //		
-////		ClientRepository.deleteById(ClientId);
-//		catalogoClientService.excluir(ClientId);
+////		UgRepository.deleteById(UgId);
+//		catalogoUgService.excluir(UgId);
 //		
 //		return ResponseEntity.noContent().build();
 //	}

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Ug {
 	@Size(max = 200)
 	private String name;
 	
-	@NotBlank
+	@NotNull
 	@ManyToOne
-	private Address idAdress;
+	private Address address;
 }
