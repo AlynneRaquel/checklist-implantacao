@@ -4,9 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,13 +21,9 @@ public class Checklist {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
-	@Size(max = 500)
-	private String description;
-	
-	@NotBlank
-	private String status;
-	
-	@NotBlank
-	private String user;
+//	@NotNull
+//	private Client client;
+//	
+//	@NotNull
+//	private Task task;
 }

@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class User {
+public class Ug {
 		
 	@EqualsAndHashCode.Include
 	@Id
@@ -24,18 +24,10 @@ public class User {
 	private Long id;
 	
 	@NotBlank
-	@Size(max = 60)
+	@Size(max = 200)
 	private String name;
-	
-	@NotBlank
-	@Size(max = 255)
-	private String user;
-	
-	@NotBlank
-	@Size(max = 40)
-	private String password;
 	
 	@NotNull
 	@ManyToOne
-	private Type type;
+	private Address address;
 }
